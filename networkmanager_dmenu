@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # encoding:utf8
+# added changes from this pr: https://github.com/firecat53/networkmanager-dmenu/pull/169
 """NetworkManager command line dmenu script.
 
 To add new connections or enable/disable networking requires policykit
@@ -390,7 +391,7 @@ def dmenu_cmd(prompt, active_lines=None):
         "fuzzel": ["--dmenu", "--placeholder", str(prompt)],
         "rofi": ["-dmenu", "-p", str(prompt)],
         "tofi": ["--require-match=false", f"--prompt-text={str(prompt)}: "],
-        "walker": ["-d", "-p", str(prompt), "-k", "-n", "-f"],
+        "walker": ["-d", "-p", str(prompt), "-k"],
         "wmenu": ["-p", str(prompt)],
         "wofi": ["--dmenu", "-p", str(prompt)],
     }
@@ -421,7 +422,7 @@ def dmenu_cmd(prompt, active_lines=None):
             "fuzzel": ["--password"],
             "rofi": ["-password"],
             "tofi": ["--hide-input=true", "--hidden-character=*"],
-            "walker": ["-y", "-n"],
+            "walker": ["-y", "-I"],
             "wmenu": ["-P"],
             "wofi": ["-P"],
         }
